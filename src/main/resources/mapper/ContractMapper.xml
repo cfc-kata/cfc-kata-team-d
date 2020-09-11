@@ -54,7 +54,7 @@
      select
        amt
       from t_contract_limit_age
-    where min_age <![CDATA[ <= ]]> #{age,jdbcType=VARCHAR} and max_age <![CDATA[ > ]]> #{age,jdbcType=VARCHAR}
+    where min_age <![CDATA[ <= ]]> #{age,jdbcType=INTEGER} and max_age <![CDATA[ > ]]> #{age,jdbcType=INTEGER}
   </select>
 
 </mapper>
