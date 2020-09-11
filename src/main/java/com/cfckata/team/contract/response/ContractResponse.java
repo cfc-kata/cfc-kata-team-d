@@ -1,12 +1,24 @@
 package com.cfckata.team.contract.response;
 
+import com.cfckata.team.customer.Customer;
 import com.github.meixuesong.aggregatepersistence.Versionable;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
+import java.util.Date;
 
 public class ContractResponse implements Serializable, Versionable {
 
     private String contractId;
+
+    private Customer customer;
+
+    private BigDecimal rate;
+
+    private String repaymentType;
+    private Date overDate;
+
+    private String  status;
 
     public ContractResponse(){}
 

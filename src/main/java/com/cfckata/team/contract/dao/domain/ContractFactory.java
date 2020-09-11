@@ -22,7 +22,11 @@ public class ContractFactory {
     }
 
 
-
+    /**
+     * 生产一个合同
+     * @param request
+     * @return
+     */
     public Contract getContract(CreateContractRequest request) {
         if (customerRepository.findById(request.getCustomer().getId()) == null) {
             throw new IllegalArgumentException("Customer not exists.");

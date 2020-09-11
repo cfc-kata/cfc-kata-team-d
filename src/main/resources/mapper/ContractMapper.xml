@@ -8,7 +8,7 @@
     <result column="draw_amt" jdbcType="DECIMAL" property="drawAmt" />
     <result column="rate" jdbcType="DECIMAL" property="rate" />
     <result column="term" jdbcType="INTEGER" property="term" />
-    <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
     <result column="over_date" jdbcType="TIMESTAMP" property="overDate" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
@@ -36,7 +36,7 @@
         id, customer_id, amt,drawAmt, rate, term, status,over_date, create_time,update_time
     )values (
        #{id,jdbcType=VARCHAR},  #{customerId,jdbcType=VARCHAR},#{amt,jdbcType=DECIMAL},
-       #{drawAmt,jdbcType=DECIMAL}, #{rate,jdbcType=DECIMAL}, #{term,jdbcType=INTEGER}, #{status,jdbcType=TINYINT}, 1,
+       #{drawAmt,jdbcType=DECIMAL}, #{rate,jdbcType=DECIMAL}, #{term,jdbcType=INTEGER}, #{status,jdbcType=TINYINT}, #{status,jdbcType=VARCHAR},
        #{overDate,jdbcType=TIMESTAMP},#{createTime,jdbcType=TIMESTAMP},#{updateTime,jdbcType=TIMESTAMP},
       )
   </insert>
@@ -45,7 +45,7 @@
     update t_contract
     set draw_amt = #{drawAmt,jdbcType=DECIMAL},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
-      status = #{status,jdbcType=TINYINT}
+      status = #{status,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
 

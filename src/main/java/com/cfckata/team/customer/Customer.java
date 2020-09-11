@@ -1,5 +1,7 @@
 package com.cfckata.team.customer;
 
+import com.cfckata.team.utils.DateUtils;
+
 public class Customer {
     private String id;
     private String name;
@@ -18,7 +20,7 @@ public class Customer {
     }
 
     public int getAge(){
-        return 18;
+        return Integer.parseInt(DateUtils.getCurTime("yyyyy"))-Integer.parseInt(this.idNo.substring(6,10));
     }
 
 

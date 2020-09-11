@@ -4,9 +4,6 @@ import com.cfckata.team.contract.dao.domain.Contract;
 import com.cfckata.team.contract.request.CreateContractRequest;
 import com.cfckata.team.contract.response.ContractResponse;
 import com.cfckata.team.contract.service.ContractService;
-import com.cfckata.team.sales.domain.SalesOrder;
-import com.cfckata.team.sales.request.CreateOrderRequest;
-import com.cfckata.team.sales.response.OrderResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 

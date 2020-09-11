@@ -39,7 +39,7 @@ create table if not exists t_contract (
     draw_amt decimal(12, 2) not null default 0,
     rate decimal(12, 4) not null default 0,
     term int,
-    status tinyint not null default 0,
+    status varchar(10) not null,
     over_date datetime not null,
     create_time datetime not null,
     update_time datetime not null,
