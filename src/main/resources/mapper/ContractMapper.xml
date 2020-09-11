@@ -17,7 +17,7 @@
     id, customer_id, amt,draw_amt, rate, term, status,over_date, create_time,update_time
   </sql>
 
-  <select id="selectById" parameterType="java.lang.Long" resultMap="BaseResultMap">
+  <select id="selectById" parameterType="java.lang.String" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
     from t_contract
@@ -26,7 +26,7 @@
 
 
 
-  <delete id="deleteById" parameterType="java.lang.Long">
+  <delete id="deleteById" parameterType="java.lang.String">
     delete from t_contract
     where id = #{id,jdbcType=VARCHAR}
   </delete>
