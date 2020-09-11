@@ -47,9 +47,9 @@ create table if not exists t_contract (
     rate decimal(12, 4) not null default 0,
     term int,
     status varchar(10) not null,
-    over_date datetime not null,
-    create_time datetime not null,
-    update_time datetime not null,
+    over_date datetime ,
+    create_time datetime ,
+    update_time datetime ,
     primary key (id)
 );
 
@@ -58,7 +58,7 @@ create table if not exists t_contract_limit_age (
     amt decimal(12, 2) not null default 0,
     min_age int,
     max_age int,
-    status tinyint not null default 0,
+    status tinyint not null default 1,
     version int,
     primary key (id)
 );
