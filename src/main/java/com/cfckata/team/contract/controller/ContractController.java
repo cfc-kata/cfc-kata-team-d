@@ -1,5 +1,6 @@
 package com.cfckata.team.contract.controller;
 
+import com.cfckata.team.contract.dao.domain.Contract;
 import com.cfckata.team.contract.request.CreateContractRequest;
 import com.cfckata.team.contract.response.ContractResponse;
 import com.cfckata.team.contract.service.ContractService;
@@ -28,7 +29,7 @@ public class ContractController {
     @GetMapping("/{contractId}")
     public ContractResponse findContract(@PathVariable String contractId) {
         String customerId ="TEST_USER_ID";
-        ContractResponse contract =new ContractResponse(contractId,customerId);
+        ContractResponse contract =contractService.findById(contractId).toResponse();
         return contract;
     }
 
@@ -41,7 +42,8 @@ public class ContractController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public ContractResponse createContract(@RequestBody CreateContractRequest request) {
-        return new ContractResponse();
+        Contract contract=  contractService.createContract(request);
+        return contract.toResponse();
     }
 
 }

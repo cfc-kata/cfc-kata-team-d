@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cfckata.team.contract.dao.mapper.ContractMapper">
+  <resultMap id="BaseResultMap" type="com.cfckata.team.contract.dao.domain.Contract">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="customer_id" jdbcType="VARCHAR" property="customerId" />
+    <result column="amt" jdbcType="DECIMAL" property="amt" />
+    <result column="draw_amt" jdbcType="DECIMAL" property="drawAmt" />
+    <result column="rate" jdbcType="DECIMAL" property="rate" />
+    <result column="term" jdbcType="INTEGER" property="term" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="over_date" jdbcType="TIMESTAMP" property="overDate" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, customer_id, amt,drawAmt, rate, term, status,over_date, create_time,update_time
+  </sql>
+
+  <select id="selectById" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from t_contract
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+
+
+
+  <delete id="deleteById" parameterType="java.lang.Long">
+    delete from t_contract
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+
+  <insert id="insert" parameterType="com.cfckata.team.contract.dao.domain.Contract">
+    insert into t_contract (
+        id, customer_id, amt,drawAmt, rate, term, status,over_date, create_time,update_time
+    )values (
+       #{id,jdbcType=VARCHAR},  #{customerId,jdbcType=VARCHAR},#{amt,jdbcType=DECIMAL},
+       #{drawAmt,jdbcType=DECIMAL}, #{rate,jdbcType=DECIMAL}, #{term,jdbcType=INTEGER}, #{status,jdbcType=TINYINT}, 1,
+       #{overDate,jdbcType=TIMESTAMP},#{createTime,jdbcType=TIMESTAMP},#{updateTime,jdbcType=TIMESTAMP},
+      )
+  </insert>
+
+  <update id="updateById"  parameterType="com.cfckata.team.contract.dao.domain.Contract">
+    update t_contract
+    set draw_amt = #{drawAmt,jdbcType=DECIMAL},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=TINYINT}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+
+
+  <select id="selectLimitByAge"  parameterType="java.lang.Integer" resultType="java.math.BigDecimal">
+     select
+       amt
+      from t_contract_limit_age
+    where min_age <![CDATA[ <= ]]> #{age,jdbcType=VARCHAR} and max_age <![CDATA[ > ]]> #{age,jdbcType=VARCHAR}
+  </select>
+
+</mapper>

@@ -30,3 +30,28 @@ create table if not exists customer (
     name varchar(40) not null,
     primary key (id)
 );
+
+
+create table if not exists t_contract (
+    id varchar(32) not null,
+    customer_id varchar(32) not null,
+    amt decimal(12, 2) not null default 0,
+    draw_amt decimal(12, 2) not null default 0,
+    rate decimal(12, 4) not null default 0,
+    term int,
+    status tinyint not null default 0,
+    over_date datetime not null,
+    create_time datetime not null,
+    update_time datetime not null,
+    primary key (id)
+);
+
+create table if not exists t_contract_limit_age (
+    id bigint auto_increment,
+    amt decimal(12, 2) not null default 0,
+    min_age int,
+    max_age int,
+    status tinyint not null default 0,
+    version int,
+    primary key (id)
+);

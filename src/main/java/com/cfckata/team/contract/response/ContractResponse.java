@@ -1,33 +1,29 @@
 package com.cfckata.team.contract.response;
 
+import com.github.meixuesong.aggregatepersistence.Versionable;
+
 import java.io.Serializable;
 
-public class ContractResponse implements Serializable {
+public class ContractResponse implements Serializable, Versionable {
 
-    private String id;
-
-    private String customerId;
+    private String contractId;
 
     public ContractResponse(){}
 
-    public ContractResponse(String id, String customerId) {
-        this.id = id;
-        this.customerId = customerId;
+    public ContractResponse(String contractId) {
+        this.contractId = contractId;
     }
 
-    public String getId() {
-        return id;
+    public String getContractId() {
+        return contractId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setContractId(String contractId) {
+        this.contractId = contractId;
     }
 
-    public String getCustomerId() {
-        return customerId;
-    }
-
-    public void setCustomerId(String customerId) {
-        this.customerId = customerId;
+    @Override
+    public int getVersion() {
+        return 0;
     }
 }
