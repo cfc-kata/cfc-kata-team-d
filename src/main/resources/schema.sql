@@ -30,3 +30,10 @@ create table if not exists customer (
     name varchar(40) not null,
     primary key (id)
 );
+
+create table if not exists repayment (
+    id varchar(20) not null,
+    create_time datetime not null,
+    version int,
+    primary key (id)
+);
