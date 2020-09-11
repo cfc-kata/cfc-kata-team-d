@@ -21,7 +21,7 @@ public class ContractRepositoryTest extends RepositoryTest {
     private String idNo="411522198600011234";
     @Test
     @Sql(scripts = "classpath:sql/contract-test-before.sql", executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
-    @Sql(scripts = "classpath:sql/order-test-after.sql", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
+    @Sql(scripts = "classpath:sql/contract-test-after.sql", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
     public void should_success_limit_amt() {
         BigDecimal limAmt  = contractRepository.selectLimitByAge(19);
         Assert.assertEquals(new BigDecimal("10000").compareTo(limAmt)==0,true);
@@ -29,7 +29,7 @@ public class ContractRepositoryTest extends RepositoryTest {
 
     @Test
     @Sql(scripts = "classpath:sql/contract-test-before.sql", executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
-    @Sql(scripts = "classpath:sql/order-test-after.sql", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
+    @Sql(scripts = "classpath:sql/contract-test-after.sql", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
     public void should_success_select() {
         String id ="10000";
         Contract contract  = contractRepository.selectById(id);
@@ -38,7 +38,7 @@ public class ContractRepositoryTest extends RepositoryTest {
 
     @Test
     @Sql(scripts = "classpath:sql/contract-test-before.sql", executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
-    @Sql(scripts = "classpath:sql/order-test-after.sql", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
+    @Sql(scripts = "classpath:sql/contract-test-after.sql", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
     public void should_success_save() {
         int i= contractRepository.insert(this.createNormalTestContract());
         Assert.assertEquals(i,1);
