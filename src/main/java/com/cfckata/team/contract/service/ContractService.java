@@ -15,8 +15,11 @@ public class ContractService {
     @Autowired
     private ContractRepository contractRepository;
 
-    public ContractService(ContractFactory contractFactory) {
+    public ContractService(){}
+
+    public ContractService(ContractFactory contractFactory,ContractRepository contractRepository) {
         this.contractFactory = contractFactory;
+        this.contractRepository=contractRepository;
     }
 
 

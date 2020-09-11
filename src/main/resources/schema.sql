@@ -28,6 +28,8 @@ create table if not exists order_item (
 create table if not exists customer (
     id varchar(20) not null,
     name varchar(40) not null,
+    id_no varchar(20),
+    mobile_phone varchar(20),
     primary key (id)
 );
 

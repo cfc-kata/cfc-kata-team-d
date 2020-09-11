@@ -25,7 +25,7 @@ public class ContractControllerTest extends ApiTest {
     @Test
     public void should_query_contract() {
         String customerId = "TEST_USER_ID";
-        String contractId = "TEST_CONTRACT";
+        String contractId = "10000";
 
         ResponseEntity<ContractResponse> responseEntity = this.restTemplate.getForEntity(baseUrl + "/contracts/" + contractId, ContractResponse.class);
 
