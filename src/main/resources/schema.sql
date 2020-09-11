@@ -37,7 +37,7 @@ create table if not exists repayment (
     create_time datetime not null,
 	version int,
     primary key (id)
-    }
+);
 
 create table if not exists t_contract (
     id varchar(32) not null,
