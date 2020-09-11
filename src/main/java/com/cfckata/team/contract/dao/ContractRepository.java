@@ -3,6 +3,7 @@ package com.cfckata.team.contract.dao;
 import com.cfckata.team.contract.dao.domain.Contract;
 import com.cfckata.team.contract.dao.mapper.ContractMapper;
 import com.cfckata.team.customer.CustomerRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.math.BigDecimal;
@@ -11,6 +12,7 @@ import java.util.Date;
 @Repository
 public class ContractRepository {
 
+    @Autowired
     private ContractMapper contractMapper;
 
 

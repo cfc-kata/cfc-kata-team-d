@@ -25,8 +25,12 @@ public class ContractController {
      */
     @GetMapping("/{contractId}")
     public ContractResponse findContract(@PathVariable String contractId) {
-        ContractResponse contract =contractService.findById(contractId).toResponse();
-        return contract;
+        Contract  contract =contractService.findById(contractId);
+        if(contract==null){
+            return null;
+        }
+        ContractResponse response= contract.toResponse();
+        return response;
     }
 
 
