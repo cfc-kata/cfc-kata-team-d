@@ -14,7 +14,7 @@
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, customer_id, amt,drawAmt, rate, term, status,over_date, create_time,update_time
+    id, customer_id, amt,draw_amt, rate, term, status,over_date, create_time,update_time
   </sql>
 
   <select id="selectById" parameterType="java.lang.Long" resultMap="BaseResultMap">
@@ -33,7 +33,7 @@
 
   <insert id="insert" parameterType="com.cfckata.team.contract.dao.domain.Contract">
     insert into t_contract (
-        id, customer_id, amt,drawAmt, rate, term, status,over_date, create_time,update_time
+        id, customer_id, amt,draw_amt, rate, term, status,over_date, create_time,update_time
     )values (
        #{id,jdbcType=VARCHAR},  #{customerId,jdbcType=VARCHAR},#{amt,jdbcType=DECIMAL},
        #{drawAmt,jdbcType=DECIMAL}, #{rate,jdbcType=DECIMAL}, #{term,jdbcType=INTEGER}, #{status,jdbcType=TINYINT}, #{status,jdbcType=VARCHAR},
