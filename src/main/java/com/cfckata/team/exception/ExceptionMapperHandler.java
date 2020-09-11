@@ -1,4 +1,4 @@
-package com.cfckata.exception;
+package com.cfckata.team.exception;
 
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
