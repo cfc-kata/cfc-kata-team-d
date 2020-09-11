@@ -28,7 +28,6 @@ public class ContractController {
      */
     @GetMapping("/{contractId}")
     public ContractResponse findContract(@PathVariable String contractId) {
-        String customerId ="TEST_USER_ID";
         ContractResponse contract =contractService.findById(contractId).toResponse();
         return contract;
     }
