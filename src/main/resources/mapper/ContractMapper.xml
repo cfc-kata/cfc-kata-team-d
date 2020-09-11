@@ -36,8 +36,8 @@
         id, customer_id, amt,draw_amt, rate, term, status,over_date, create_time,update_time
     )values (
        #{id,jdbcType=VARCHAR},  #{customerId,jdbcType=VARCHAR},#{amt,jdbcType=DECIMAL},
-       #{drawAmt,jdbcType=DECIMAL}, #{rate,jdbcType=DECIMAL}, #{term,jdbcType=INTEGER}, #{status,jdbcType=TINYINT}, #{status,jdbcType=VARCHAR},
-       #{overDate,jdbcType=TIMESTAMP},#{createTime,jdbcType=TIMESTAMP},#{updateTime,jdbcType=TIMESTAMP},
+       #{drawAmt,jdbcType=DECIMAL}, #{rate,jdbcType=DECIMAL}, #{term,jdbcType=INTEGER}, #{status,jdbcType=VARCHAR},
+       #{overDate,jdbcType=TIMESTAMP},#{createTime,jdbcType=TIMESTAMP},#{updateTime,jdbcType=TIMESTAMP}
       )
   </insert>
 
