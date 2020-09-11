@@ -2,7 +2,6 @@ package com.cfckata.team.contract.dao;
 
 import com.cfckata.team.contract.dao.domain.Contract;
 import com.cfckata.team.contract.dao.mapper.ContractMapper;
-import com.cfckata.team.customer.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -40,7 +39,11 @@ public class ContractRepository {
     }
 
     public BigDecimal selectLimitByAge(int age){
-        return contractMapper.selectLimitByAge(age);
+        BigDecimal limitAmt =  contractMapper.selectLimitByAge(age);
+        if(limitAmt==null || limitAmt.compareTo(BigDecimal.ZERO)<=0){
+            throw new RuntimeException("限额关系未配置");
+        }
+        return limitAmt;
     }
 
 }

@@ -4,7 +4,6 @@ import com.cfckata.team.contract.dao.ContractRepository;
 import com.cfckata.team.contract.dao.domain.Contract;
 import com.cfckata.team.contract.dao.domain.ContractFactory;
 import com.cfckata.team.contract.request.CreateContractRequest;
-import com.cfckata.team.contract.response.ContractResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

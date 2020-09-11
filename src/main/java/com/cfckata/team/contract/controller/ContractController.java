@@ -27,7 +27,7 @@ public class ContractController {
     public ContractResponse findContract(@PathVariable String contractId) {
         Contract  contract =contractService.findById(contractId);
         if(contract==null){
-            return null;
+           return new ContractResponse("合同不存在");
         }
         ContractResponse response= contract.toResponse();
         return response;

@@ -29,8 +29,9 @@ public class ContractControllerTest extends ApiTest {
 
         ResponseEntity<ContractResponse> responseEntity = this.restTemplate.getForEntity(baseUrl + "/contracts/" + contractId, ContractResponse.class);
 
+        System.out.println(responseEntity.getStatusCode());
         assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
-        ContractResponse contract = responseEntity.getBody();
+        //ContractResponse contract = responseEntity.getBody();
         //assertThat(contract.getContractId()).isEqualTo(contractId);
         //assertThat(contract.getCustomerId()).isEqualTo(customerId);
     }
