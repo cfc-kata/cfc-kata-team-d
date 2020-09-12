@@ -6,7 +6,7 @@ public class Customer {
     private String id;
     private String name;
 
-    private String idNo;
+    private String idNumber;
 
     private String mobilePhone;
 
@@ -14,13 +14,16 @@ public class Customer {
     public Customer() {
     }
 
-    public Customer(String id, String name) {
+    public Customer(String id, String name,String idNumber,String mobilePhone) {
         this.id = id;
         this.name = name;
+        this.idNumber = idNumber;
+        this.mobilePhone=mobilePhone;
     }
 
+
     public int getAge(){
-        return Integer.parseInt(DateUtils.getCurTime("yyyyy"))-Integer.parseInt(this.idNo.substring(6,10));
+        return Integer.parseInt(DateUtils.getCurTime("yyyyy"))-Integer.parseInt(this.idNumber.substring(6,10));
     }
 
 
@@ -41,12 +44,12 @@ public class Customer {
         this.name = name;
     }
 
-    public String getIdNo() {
-        return idNo;
+    public String getIdNumber() {
+        return idNumber;
     }
 
-    public void setIdNo(String idNo) {
-        this.idNo = idNo;
+    public void setIdNumber(String idNumber) {
+        this.idNumber = idNumber;
     }
 
     public String getMobilePhone() {

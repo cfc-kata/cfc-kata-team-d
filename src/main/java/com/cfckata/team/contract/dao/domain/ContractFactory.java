@@ -2,17 +2,25 @@ package com.cfckata.team.contract.dao.domain;
 
 import com.cfckata.team.contract.dao.ContractRepository;
 import com.cfckata.team.contract.request.CreateContractRequest;
+import com.cfckata.team.customer.Customer;
 import com.cfckata.team.customer.CustomerRepository;
 import com.cfckata.team.sales.domain.SalesOrder;
+import com.cfckata.team.utils.DateUtils;
 import com.github.meixuesong.aggregatepersistence.Aggregate;
 import com.github.meixuesong.aggregatepersistence.AggregateFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Date;
+import java.util.UUID;
 
 @Service
 public class ContractFactory {
 
+    @Autowired
     private ContractRepository contractRepository;
 
+    @Autowired
     private CustomerRepository customerRepository;
 
     public ContractFactory(ContractRepository contractRepository,CustomerRepository customerRepository) {
@@ -23,16 +31,19 @@ public class ContractFactory {
 
 
     /**
-     * 生产一个合同
+     * 生成合同
      * @param request
      * @return
      */
     public Contract getContract(CreateContractRequest request) {
-        if (customerRepository.findById(request.getCustomer().getId()) == null) {
+        Customer customer =customerRepository.findById(request.getCustomer().getId());
+        if ( customer== null) {
             throw new IllegalArgumentException("Customer not exists.");
         }
         Contract contract=new Contract();
+        contract.setId(DateUtils.getCurDT()+DateUtils.getCurTM());
         contract.setCustomerId(request.getCustomer().getId());
+        contract.setCustomer(customer);
         return contract;
     }
 

@@ -1,4 +1,4 @@
-package com.cfckata.team.sales.contract;
+package com.cfckata.team.contract;
 
 import com.cfckata.common.RepositoryTest;
 import com.cfckata.team.contract.dao.ContractRepository;
@@ -64,7 +64,7 @@ public class ContractRepositoryTest extends RepositoryTest {
         CreateContractRequest request =new CreateContractRequest();
         Customer customer =new Customer();
         customer.setId(customerId);
-        customer.setIdNo(idNo);
+        customer.setIdNumber(idNo);
         customer.setMobilePhone("130xxxxxx");
         customer.setName("zhangsan");
         request.setCustomer(customer);

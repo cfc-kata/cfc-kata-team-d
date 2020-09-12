@@ -9,16 +9,22 @@ public class ContractDO {
 
     private String customerId;
 
+    /**授信金额*/
     private BigDecimal amt;
 
+    /**已提款金额*/
     private BigDecimal drawAmt;
 
+    /**费率*/
     private BigDecimal rate;
 
+    /**合同周期，单位月*/
     private int term;
 
+    /**合同状态 ACTIVE*/
     private String status;
 
+    /**合同到期时间*/
     private Date overDate;
 
     private Date createTime;

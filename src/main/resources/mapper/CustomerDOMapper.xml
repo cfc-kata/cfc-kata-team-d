@@ -4,9 +4,11 @@
   <resultMap id="BaseResultMap" type="com.cfckata.team.customer.CustomerDO">
     <id column="id" jdbcType="VARCHAR" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="id_number" jdbcType="VARCHAR" property="idNumber" />
+    <result column="mobile_phone" jdbcType="VARCHAR" property="mobilePhone" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, name
+    id, name,id_number,mobile_phone
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select

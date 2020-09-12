@@ -1,14 +1,12 @@
 package com.cfckata.team.contract.response;
 
+import com.cfckata.team.core.DataResponse;
 import com.cfckata.team.customer.Customer;
-import com.github.meixuesong.aggregatepersistence.Versionable;
-import java.io.Serializable;
+
 import java.math.BigDecimal;
 import java.util.Date;
 
-public class ContractResponse implements Serializable, Versionable {
-
-    private String retCode;
+public class ContractResponse {
 
     private String contractId;
 
@@ -22,11 +20,12 @@ public class ContractResponse implements Serializable, Versionable {
 
     private String  status;
 
+    private BigDecimal amt;
+
+
     public ContractResponse(){}
 
-    public ContractResponse(String retCode) {
-        this.retCode = retCode;
-    }
+
 
 
     public String getContractId() {
@@ -35,14 +34,6 @@ public class ContractResponse implements Serializable, Versionable {
 
     public void setContractId(String contractId) {
         this.contractId = contractId;
-    }
-
-    public String getRetCode() {
-        return retCode;
-    }
-
-    public void setRetCode(String retCode) {
-        this.retCode = retCode;
     }
 
     public Customer getCustomer() {
@@ -85,8 +76,11 @@ public class ContractResponse implements Serializable, Versionable {
         this.status = status;
     }
 
-    @Override
-    public int getVersion() {
-        return 0;
+    public BigDecimal getAmt() {
+        return amt;
+    }
+
+    public void setAmt(BigDecimal amt) {
+        this.amt = amt;
     }
 }

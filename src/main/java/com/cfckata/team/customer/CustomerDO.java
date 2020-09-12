@@ -3,9 +3,11 @@ package com.cfckata.team.customer;
 public class CustomerDO {
     private String id;
     private String name;
+    private String idNumber;
+    private String mobilePhone;
 
     public Customer toCustomer() {
-        return new Customer(id, name);
+        return new Customer(id, name,idNumber,mobilePhone);
     }
 
     public String getId() {
@@ -22,5 +24,21 @@ public class CustomerDO {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getIdNumber() {
+        return idNumber;
+    }
+
+    public void setIdNumber(String idNumber) {
+        this.idNumber = idNumber;
+    }
+
+    public String getMobilePhone() {
+        return mobilePhone;
+    }
+
+    public void setMobilePhone(String mobilePhone) {
+        this.mobilePhone = mobilePhone;
     }
 }
