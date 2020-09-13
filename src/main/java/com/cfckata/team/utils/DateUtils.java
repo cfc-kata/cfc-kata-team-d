@@ -330,11 +330,18 @@ public class DateUtils {
     }
 
     public static java.sql.Timestamp getCurYMDSql() {
-        java.sql.Timestamp dateSQL = new java.sql.Timestamp(getCurYMD().getTime());
+        Date date = getCurYMD();
+        if(date ==null){
+            return null;
+        }
+        java.sql.Timestamp dateSQL = new java.sql.Timestamp(date.getTime());
         return dateSQL;
     }
 
     public static java.sql.Timestamp getCurYMDSql(Date date) {
+        if(date ==null){
+            return null;
+        }
         java.sql.Timestamp dateSQL = new java.sql.Timestamp(date.getTime());
         return dateSQL;
     }
@@ -357,6 +364,9 @@ public class DateUtils {
     public static java.sql.Date getCurSqlYMD() {
         try {
             java.util.Date date =getCurYMD();
+            if(date==null){
+                return null;
+            }
             java.sql.Date sqlDate = new java.sql.Date(date.getTime());
             return sqlDate;
         }catch (Exception ex) {
