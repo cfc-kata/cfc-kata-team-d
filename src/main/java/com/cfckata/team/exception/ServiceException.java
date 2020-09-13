@@ -1,7 +1,9 @@
 package com.cfckata.team.exception;
 
 public class ServiceException extends RuntimeException {
+
     private String retCode;
+
     private String retMsg;
 
     public ServiceException() {

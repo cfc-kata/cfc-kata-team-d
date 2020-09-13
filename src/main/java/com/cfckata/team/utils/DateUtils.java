@@ -309,15 +309,9 @@ public class DateUtils {
     }
 
     public static java.sql.Date getCurSqlDate() {
-        try {
-            java.util.Date date =getCurDate();
-            java.sql.Date sqlDate = new java.sql.Date(date.getTime());
-            return sqlDate;
-        }catch (Exception ex) {
-            log.error("转换异常",ex);
-        }
-        return null;
-
+       java.util.Date date =getCurDate();
+       java.sql.Date sqlDate = new java.sql.Date(date.getTime());
+       return sqlDate;
     }
 
     /**
@@ -336,16 +330,14 @@ public class DateUtils {
         if(date ==null){
             return null;
         }
-        java.sql.Timestamp dateSQL = new java.sql.Timestamp(date.getTime());
-        return dateSQL;
+        return  new java.sql.Timestamp(date.getTime());
     }
 
     public static java.sql.Timestamp getCurYMDSql(Date date) {
         if(date ==null){
             return null;
         }
-        java.sql.Timestamp dateSQL = new java.sql.Timestamp(date.getTime());
-        return dateSQL;
+        return new java.sql.Timestamp(date.getTime());
     }
 
     /**
@@ -431,8 +423,7 @@ public class DateUtils {
      * @return yyyy-MM-dd HH:mm:ss
      */
     public static String getOptDate(Date date) {
-        String optDate = DateUtils.dateToString(date, PATTERN_DEFAULT_ON_SECOND);
-        return optDate;
+        return  DateUtils.dateToString(date, PATTERN_DEFAULT_ON_SECOND);
     }
     /**
      * 根据传入格式返回当前时间的字符串
@@ -445,8 +436,7 @@ public class DateUtils {
     public static String getSysOptDate(String strFormat) {
         Calendar date = Calendar.getInstance();
         Date sysDate = date.getTime();
-        String optDate = DateUtils.dateToString(sysDate, strFormat);
-        return optDate;
+        return  DateUtils.dateToString(sysDate, strFormat);
     }
 
     /**
@@ -570,8 +560,7 @@ public class DateUtils {
             date=new Date();
         }
         SimpleDateFormat sdf = new SimpleDateFormat(PATTERN_DEFAULT_ON_SECOND);
-        String strStamp=sdf.format(date);
-        return strStamp;
+        return sdf.format(date);
     }
 
     /**

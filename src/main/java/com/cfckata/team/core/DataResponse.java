@@ -7,10 +7,10 @@ public class DataResponse<T> {
 
     private T data;
 
-    public final static String SUCCESS = "0000000";
-    private final static String SUCCESS_MSG = "操作成功";
+    public static final  String SUCCESS = "0000000";
+    private static final  String SUCCESS_MSG = "操作成功";
 
-    public final static String FAIL = "0000001";
+    public  static final  String FAIL = "0000001";
 
     @SuppressWarnings("all")
     public static <T> DataResponse<T> succeed(T data) {
