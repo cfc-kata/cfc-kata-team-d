@@ -1,6 +1,5 @@
 package com.cfckata.team.contract.response;
 
-import com.cfckata.team.core.DataResponse;
 import com.cfckata.team.customer.Customer;
 
 import java.math.BigDecimal;

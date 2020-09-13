@@ -4,15 +4,9 @@ import com.cfckata.team.contract.dao.ContractRepository;
 import com.cfckata.team.contract.request.CreateContractRequest;
 import com.cfckata.team.customer.Customer;
 import com.cfckata.team.customer.CustomerRepository;
-import com.cfckata.team.sales.domain.SalesOrder;
 import com.cfckata.team.utils.DateUtils;
-import com.github.meixuesong.aggregatepersistence.Aggregate;
-import com.github.meixuesong.aggregatepersistence.AggregateFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.Date;
-import java.util.UUID;
 
 @Service
 public class ContractFactory {

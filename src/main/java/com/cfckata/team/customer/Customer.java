@@ -2,7 +2,10 @@ package com.cfckata.team.customer;
 
 import com.cfckata.team.utils.DateUtils;
 
-public class Customer {
+import java.io.Serializable;
+
+public class Customer implements Serializable {
+
     private String id;
     private String name;
 

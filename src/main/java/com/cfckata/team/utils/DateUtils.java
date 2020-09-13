@@ -489,9 +489,11 @@ public class DateUtils {
             clsFormat = new SimpleDateFormat("yyyy-MM-dd");
         else if (strValue.length() == 14)
             clsFormat = new SimpleDateFormat("yyyyMMddHHmmss");
-        else if (strValue.length() == 8)
+        else if (strValue.length() == 8) {
             clsFormat = new SimpleDateFormat("yyyyMMdd");
-
+        }else{
+            clsFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        }
         ParsePosition pos = new ParsePosition(0);
         return clsFormat.parse(strValue, pos);
     }
