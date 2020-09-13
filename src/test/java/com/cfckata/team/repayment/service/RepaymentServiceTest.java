@@ -11,6 +11,7 @@ import static org.mockito.ArgumentMatchers.same;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -52,8 +53,7 @@ public class RepaymentServiceTest {
         when(repaymentRepository.findById(same(repaymentId))).thenReturn(AggregateFactory.createAggregate(repayment));
 
         // THEN
-        assertTrue(repaymentId.equals(repayment.getId()));
-
+        Assert.assertEquals(repaymentId,repayment.getId());
     }
 
 }

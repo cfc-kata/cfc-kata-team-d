@@ -310,8 +310,7 @@ public class DateUtils {
 
     public static java.sql.Date getCurSqlDate() {
        java.util.Date date =getCurDate();
-       java.sql.Date sqlDate = new java.sql.Date(date.getTime());
-       return sqlDate;
+       return new java.sql.Date(date.getTime());
     }
 
     /**
@@ -361,8 +360,7 @@ public class DateUtils {
             if(date==null){
                 return null;
             }
-            java.sql.Date sqlDate = new java.sql.Date(date.getTime());
-            return sqlDate;
+            return new java.sql.Date(date.getTime());
         }catch (Exception ex) {
             log.error("转换异常",ex);
         }
@@ -413,8 +411,7 @@ public class DateUtils {
     public static String getSysOptDate() {
         Calendar date = Calendar.getInstance();
         Date sysDate = date.getTime();
-        String optDate = DateUtils.dateToString(sysDate, PATTERN_DEFAULT_ON_SECOND);
-        return optDate;
+        return DateUtils.dateToString(sysDate, PATTERN_DEFAULT_ON_SECOND);
     }
 
     /**
@@ -532,8 +529,7 @@ public class DateUtils {
             date=new Date();
         }
         SimpleDateFormat sdf = new SimpleDateFormat(PATTERN_ISO_ON_DATE);
-        String strDate=sdf.format(date);
-        return strDate;
+        return sdf.format(date);
     }
 
     /**
@@ -546,8 +542,7 @@ public class DateUtils {
             return "";
         }
         SimpleDateFormat sdf = new SimpleDateFormat(PATTERN_ISO_ON_DATE);
-        String strDate=sdf.format(date);
-        return strDate;
+        return sdf.format(date);
     }
 
     /**

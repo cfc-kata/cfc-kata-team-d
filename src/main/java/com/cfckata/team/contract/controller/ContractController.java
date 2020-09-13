@@ -41,7 +41,6 @@ public class ContractController {
            return DataResponse.fail("1100001","合同不存在");
         }
         DataResponse<ContractResponse> response= DataResponse.succeed(contract.toResponse());
-        log.info("返回值:{}", JsosUtil.toJson(response));
         return  response;
     }
 
@@ -66,7 +65,6 @@ public class ContractController {
             return DataResponse.fail("1000001","处理失败");
         }
         DataResponse<ContractResponse>  response =   DataResponse.succeed(contract.toResponse());
-        log.info("返回值:{}", JsosUtil.toJson(response));
         return  response;
     }
 

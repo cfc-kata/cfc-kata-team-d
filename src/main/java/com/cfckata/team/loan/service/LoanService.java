@@ -10,12 +10,15 @@ public class LoanService {
 
 	public Loan findById(String id) {
     	Loan loan = new Loan();
-    	loan.setLoanId("123");
+    	loan.setLoanId(id);
     	return loan;
 	}
 
 	public String sendLoan(LoanSendRequest request) {
-		return "123456";
+		String contractId=request.getContractId();
+		request.setCustomerId(contractId+"");
+		String loanId="123456";
+		return loanId;
 	}
 
 
