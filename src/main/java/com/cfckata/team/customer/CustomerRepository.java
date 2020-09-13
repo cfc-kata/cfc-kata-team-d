@@ -1,5 +1,6 @@
 package com.cfckata.team.customer;
 
+import com.cfckata.team.exception.ServiceException;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -13,7 +14,7 @@ public class CustomerRepository {
     public Customer findById(String id) {
         CustomerDO customerDO = mapper.selectByPrimaryKey(id);
         if(customerDO==null){
-            throw new RuntimeException(id+",此客户不存在");
+            throw new ServiceException("1002001",id+",此客户不存在");
         }
         return customerDO.toCustomer();
     }

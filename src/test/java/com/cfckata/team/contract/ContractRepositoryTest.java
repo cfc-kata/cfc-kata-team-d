@@ -24,7 +24,7 @@ public class ContractRepositoryTest extends RepositoryTest {
     @Sql(scripts = "classpath:sql/contract-test-after.sql", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
     public void should_success_limit_amt() {
         BigDecimal limAmt  = contractRepository.selectLimitByAge(19);
-        Assert.assertEquals(new BigDecimal("10000").compareTo(limAmt)==0,true);
+        Assert.assertEquals(true,new BigDecimal("10000").compareTo(limAmt)==0);
     }
 
     @Test
@@ -33,7 +33,7 @@ public class ContractRepositoryTest extends RepositoryTest {
     public void should_success_select() {
         String id ="10000";
         Contract contract  = contractRepository.selectById(id);
-        Assert.assertEquals(contract.getCustomerId(),"10000");
+        Assert.assertEquals("10000",contract.getCustomerId());
     }
 
     @Test
@@ -41,7 +41,7 @@ public class ContractRepositoryTest extends RepositoryTest {
     @Sql(scripts = "classpath:sql/contract-test-after.sql", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
     public void should_success_save() {
         int i= contractRepository.insert(this.createNormalTestContract());
-        Assert.assertEquals(i,1);
+        Assert.assertEquals(1,i);
     }
 
     public Contract createNormalTestContract() {

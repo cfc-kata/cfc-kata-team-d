@@ -1,9 +1,11 @@
 package com.cfckata.team.utils;
 
+import com.cfckata.team.exception.ServiceException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
+import javax.xml.ws.Service;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 
@@ -15,7 +17,7 @@ public class JsosUtil {
         try {
             return getMapper().writeValueAsString(sourceObject);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new ServiceException("1000020",e.getMessage());
         }
     }
 

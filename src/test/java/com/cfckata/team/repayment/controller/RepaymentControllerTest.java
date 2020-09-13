@@ -3,6 +3,7 @@ package com.cfckata.team.repayment.controller;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,6 +28,6 @@ public class RepaymentControllerTest extends ApiTest {
         // THEN
         assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
         RepaymentResponse repaymentResponse = responseEntity.getBody();
-        assertTrue(repaymentResponse.getId().equals(repaymentId));
+        Assert.assertEquals(repaymentId,repaymentResponse.getId());
     }
 }

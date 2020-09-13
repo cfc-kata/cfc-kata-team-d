@@ -16,7 +16,7 @@ public class DataResponse<T> {
     public static <T> DataResponse<T> succeed(T data) {
         DataResponse<T> defaultResponse = new DataResponse<T>();
         defaultResponse.setRetCode(SUCCESS);
-        defaultResponse.setRetMsg("成功");
+        defaultResponse.setRetMsg(SUCCESS_MSG);
         defaultResponse.setData(data);
         return defaultResponse;
     }

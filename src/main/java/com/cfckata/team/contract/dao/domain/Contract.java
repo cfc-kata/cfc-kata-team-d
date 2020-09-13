@@ -40,7 +40,7 @@ public class Contract extends ContractDO implements Versionable {
      */
     public void checkAndSetTerm(int applyTerm){
         if(applyTerm<=0){
-            throw new RuntimeException("贷款期限不能小于1");
+            throw new ServiceException("1000006","贷款期限不能小于1");
         }
         if(applyTerm>ContractConstant.MAX_TERM){
             throw new ServiceException("1000003","贷款期限不能超过"+ContractConstant.MAX_TERM);
