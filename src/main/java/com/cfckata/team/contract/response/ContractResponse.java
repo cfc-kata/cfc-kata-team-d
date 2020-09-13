@@ -22,11 +22,6 @@ public class ContractResponse {
     private BigDecimal amt;
 
 
-    public ContractResponse(){}
-
-
-
-
     public String getContractId() {
         return contractId;
     }

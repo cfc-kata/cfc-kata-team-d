@@ -52,6 +52,8 @@ public class DateUtils {
     /**无分隔符的8位日期格式*/
     public static final String PATTERN_NO_SEP_ON_DAY = "yyyyMMdd";
 
+    public static final String PATTERN_NO_SEP_ON_MONTH= "yyyyMM";
+
 
     //////// 日期比较 ///////////
     /**
@@ -257,7 +259,7 @@ public class DateUtils {
      * @see [类、类#方法、类#成员]
      */
     public static String getCurDT(){
-        return getCurTime("yyyyMMdd");
+        return getCurTime(PATTERN_NO_SEP_ON_DAY);
     }
 
     /**
@@ -276,7 +278,7 @@ public class DateUtils {
      * @return
      */
     public static String getCurMonth(){
-        return getCurTime("yyyyMM");
+        return getCurTime(PATTERN_NO_SEP_ON_MONTH);
     }
     /**
      * 当前时间
@@ -323,7 +325,7 @@ public class DateUtils {
      * @return yyyy-MM-dd
      */
     public static Date getCurYMD() {
-        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat sdf=new SimpleDateFormat(PATTERN_ISO_ON_DATE);
         Date date=new Date();
         String dateStr= sdf.format(date);
         return stringToDate(dateStr);
@@ -352,7 +354,7 @@ public class DateUtils {
      * @return yyyyMMdd
      */
     public static Date getCurYYMMDD(String date) {
-        SimpleDateFormat sdf=new SimpleDateFormat("yyyyMMdd");
+        SimpleDateFormat sdf=new SimpleDateFormat(PATTERN_NO_SEP_ON_DAY);
         try {
             return sdf.parse(date);
         } catch (ParseException e) {
@@ -382,7 +384,7 @@ public class DateUtils {
      * @return yyyy-MM-dd
      */
     public static Date getCurYMD(Date date) {
-        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat sdf=new SimpleDateFormat(PATTERN_ISO_ON_DATE);
         String dateStr= sdf.format(date);
         return stringToDate(dateStr);
     }
@@ -419,7 +421,7 @@ public class DateUtils {
     public static String getSysOptDate() {
         Calendar date = Calendar.getInstance();
         Date sysDate = date.getTime();
-        String optDate = DateUtils.dateToString(sysDate, "yyyy-MM-dd HH:mm:ss");
+        String optDate = DateUtils.dateToString(sysDate, PATTERN_DEFAULT_ON_SECOND);
         return optDate;
     }
 
@@ -429,7 +431,7 @@ public class DateUtils {
      * @return yyyy-MM-dd HH:mm:ss
      */
     public static String getOptDate(Date date) {
-        String optDate = DateUtils.dateToString(date, "yyyy-MM-dd HH:mm:ss");
+        String optDate = DateUtils.dateToString(date, PATTERN_DEFAULT_ON_SECOND);
         return optDate;
     }
     /**
@@ -480,19 +482,19 @@ public class DateUtils {
         if (strValue.length() > 19)
             strValue = strValue.substring(0, 19);
         if (strValue.length() == 19)
-            clsFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            clsFormat = new SimpleDateFormat(PATTERN_DEFAULT_ON_SECOND);
         else if (strValue.length() == 16)
             clsFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
         else if (strValue.length() == 13)
             clsFormat = new SimpleDateFormat("yyyy-MM-dd HH");
         else if (strValue.length() == 10)
-            clsFormat = new SimpleDateFormat("yyyy-MM-dd");
+            clsFormat = new SimpleDateFormat(PATTERN_ISO_ON_DATE);
         else if (strValue.length() == 14)
-            clsFormat = new SimpleDateFormat("yyyyMMddHHmmss");
+            clsFormat = new SimpleDateFormat(PATTERN_NO_SEP_ON_SECOND);
         else if (strValue.length() == 8) {
-            clsFormat = new SimpleDateFormat("yyyyMMdd");
+            clsFormat = new SimpleDateFormat(PATTERN_NO_SEP_ON_DAY);
         }else{
-            clsFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            clsFormat = new SimpleDateFormat(PATTERN_DEFAULT_ON_SECOND);
         }
         ParsePosition pos = new ParsePosition(0);
         return clsFormat.parse(strValue, pos);
@@ -519,7 +521,7 @@ public class DateUtils {
             endCal.setTime(DateUtils.stringToDate(endAdt));
             endCal.set(Calendar.DAY_OF_MONTH, 1);
 
-            SimpleDateFormat format = new SimpleDateFormat("yyyyMM");
+            SimpleDateFormat format = new SimpleDateFormat(PATTERN_NO_SEP_ON_MONTH);
             String startMonth=format.format(cal.getTime());
             String endMonth=format.format(endCal.getTime());
 
@@ -539,7 +541,7 @@ public class DateUtils {
         if(date == null){
             date=new Date();
         }
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat sdf = new SimpleDateFormat(PATTERN_ISO_ON_DATE);
         String strDate=sdf.format(date);
         return strDate;
     }
@@ -553,7 +555,7 @@ public class DateUtils {
         if(date == null){
             return "";
         }
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat sdf = new SimpleDateFormat(PATTERN_ISO_ON_DATE);
         String strDate=sdf.format(date);
         return strDate;
     }
@@ -567,7 +569,7 @@ public class DateUtils {
         if(date == null){
             date=new Date();
         }
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        SimpleDateFormat sdf = new SimpleDateFormat(PATTERN_DEFAULT_ON_SECOND);
         String strStamp=sdf.format(date);
         return strStamp;
     }
@@ -642,7 +644,7 @@ public class DateUtils {
         Date date = new Date();
         String dateStr = "";
         if("01".equals(costCyc)){//按月
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyyMM");
+            SimpleDateFormat sdf = new SimpleDateFormat(PATTERN_NO_SEP_ON_MONTH);
             dateStr = sdf.format(date) + "01";
         }else if("02".equals(costCyc)){//按照季度
             Calendar calendar = Calendar.getInstance();
@@ -676,7 +678,7 @@ public class DateUtils {
         Date date = new Date();
         String dateStr = "";
         if("01".equals(costCyc)){//按月
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM");
+            SimpleDateFormat sdf = new SimpleDateFormat(PATTERN_ISO_ON_MONTH);
             dateStr = sdf.format(date) + "-01";
         }else if("02".equals(costCyc)){//按照季度
             Calendar calendar = Calendar.getInstance();

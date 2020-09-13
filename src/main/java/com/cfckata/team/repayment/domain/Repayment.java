@@ -12,7 +12,6 @@ public class Repayment implements Versionable {
     
     private int version;
 
-    public Repayment() {}
 
     public String getId() {
         return id;

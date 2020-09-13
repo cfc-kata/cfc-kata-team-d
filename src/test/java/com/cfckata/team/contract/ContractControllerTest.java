@@ -111,7 +111,7 @@ public class ContractControllerTest extends ApiTest {
         assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
         DataResponse<ContractResponse> response = responseEntity.getBody();
         assertThat(response.getRetCode()).isEqualTo("0000000");
-        assertThat(response.getData().getAmt().equals(new BigDecimal(1500)));
+        assertThat(response.getData().getAmt()).isEqualTo(new BigDecimal("15000.00"));
     }
 
     /**
