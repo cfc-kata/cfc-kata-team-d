@@ -723,7 +723,7 @@ public class DateUtils {
      *
      * 将毫秒转为 *天*小时*分钟*秒*毫秒
      *
-     * @author zycfc
+     * @author
      * @date 2019年9月30日 下午2:14:38
      * @param ms
      * @return

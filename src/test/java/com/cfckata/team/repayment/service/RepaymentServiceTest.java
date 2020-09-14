@@ -2,7 +2,6 @@
  * @title RepaymentServiceTest.java
  * @author Thinkpad
  * @date 2020年9月11日 下午2:36:01
- * @copyright 2020 中原消费金融有限公司版权所有
  */
 package com.cfckata.team.repayment.service;
 
