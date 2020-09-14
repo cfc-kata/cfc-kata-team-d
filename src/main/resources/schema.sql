@@ -37,7 +37,22 @@ create table if not exists customer (
 create table if not exists repayment (
     id varchar(20) not null,
     create_time datetime not null,
+    repayment_type varchar(20) not null,
+    success_items_num int,
+    failed_items_num int,
 	version int,
+    primary key (id)
+);
+
+create table if not exists repayment_plan (
+    id varchar(20) not null,
+    create_time datetime not null,
+    repayment_id varchar(20) not null,
+    loan_id varchar(20) not null,
+	repayment_plan_Id varchar(20) not null,
+	amount decimal(12,2) not null default 0,
+	repayment_bank_account varchar(20) not null,
+	repayment_sts varchar(20),
     primary key (id)
 );
 
