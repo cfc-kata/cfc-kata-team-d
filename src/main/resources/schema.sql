@@ -79,3 +79,31 @@ create table if not exists t_contract_limit_age (
     version int,
     primary key (id)
 );
+
+create table if not exists t_repayment_plan(
+	id varchar(32) not null, 
+	loan_id varchar(32) not null, 
+	period_no int, 
+	payable_date varchar(10) not null, 
+	payable_amount decimal(12, 2) not null default 0, 
+	payable_interest decimal(12, 2) not null default 0, 
+	payable_capital decimal(12, 2) not null default 0, 
+	status varchar(10) not null, 
+	version int,
+	primary key (id)
+);
+
+create table if not exists t_loan(
+	loan_id varchar(32) not null, 
+	contract_id varchar(32) not null, 
+	apply_amount decimal(12, 2) not null default 0, 
+	total_month int, 
+	interest_rate decimal(12, 2) not null default 0, 
+	withdraw_bank_account varchar(32) not null, 
+	repayment_bank_account varchar(32) not null, 
+	repayment_type varchar(10) not null, 
+	status varchar(10) not null, 
+	version int,
+	primary key (loan_id)
+);
+

@@ -1,26 +1,27 @@
 package com.cfckata.team.loan.domain;
 
 public enum RepaymentType {
-	DEBX(0)
+	DEBX("等额本息"),
+	DEBJ("等额本金")
 	;
 
-    private int value;
+    private String value;
 
-    RepaymentType(int value) {
+    RepaymentType(String value) {
         this.value = value;
     }
 
-    public int getValue() {
+    public String getValue() {
         return value;
     }
 
-    public static RepaymentType from(int status) {
+    public static RepaymentType from(String type) {
         for (RepaymentType s : RepaymentType.values()) {
-            if (s.value == status) {
+            if (type.equals(s.value)) {
                 return s;
             }
         }
 
-        throw new IllegalArgumentException("Unknown order status: " + status);
+        throw new IllegalArgumentException("Unknown payment type: " + type);
     }
 }

@@ -4,9 +4,7 @@ package com.cfckata.team.loan.request;
 public class LoanQryRequest {
     private String loanId ;
 
-    
 	public LoanQryRequest(String loanId) {
-		super();
 		this.loanId = loanId;
 	}
 

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cfckata.team.loan.dao.mapper.LoanMapper">
+	<resultMap id="BaseResultMap" type="com.cfckata.team.loan.domain.Loan">
+		<id column="loan_id" jdbcType="VARCHAR" property="loanId" />
+		<result column="contract_id" jdbcType="VARCHAR" property="contractId" />
+		<result column="apply_amount" jdbcType="DECIMAL" property="applyAmount" />
+		<result column="total_month" jdbcType="INTEGER" property="totalMonth" />
+		<result column="interest_rate" jdbcType="DECIMAL" property="interestRate" />
+		<result column="withdraw_bank_account" jdbcType="VARCHAR"
+			property="withdrawBankAccount" />
+		<result column="repayment_bank_account" jdbcType="VARCHAR"
+			property="repaymentBankAccount" />
+		<result column="repayment_type" jdbcType="VARCHAR" property="repaymentType" />
+		<result column="status" jdbcType="TINYINT" property="status" />
+		<result column="version" jdbcType="INTEGER" property="version" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		loan_id, contract_id, apply_amount, total_month,
+		interest_rate, withdraw_bank_account, repayment_bank_account,
+		repayment_type, status, version
+	</sql>
+	<select id="selectByPrimaryKey" parameterType="java.lang.String"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from t_loan
+		where loan_id = #{id,jdbcType=VARCHAR}
+	</select>
+	<delete id="delete" parameterType="com.cfckata.team.loan.domain.Loan">
+		delete from t_loan
+		where loan_id = #{id,jdbcType=VARCHAR}
+	</delete>
+	<insert id="insert" parameterType="com.cfckata.team.loan.domain.Loan">
+		insert into t_loan (
+		<include refid="Base_Column_List" />
+		)
+		values (
+		#{loanId}, #{contractId}, #{applyAmount},
+		#{totalMonth},#{interestRate},#{withdrawBankAccount},
+		#{repaymentBankAccount}, #{repaymentType}, #{status}, 1
+		)
+	</insert>
+</mapper>

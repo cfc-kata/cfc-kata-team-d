@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cfckata.team.loan.dao.mapper.RepaymentPlanMapper">
+	<resultMap id="BaseResultMap" type="com.cfckata.team.loan.domain.RepaymentPlan">
+		<id column="id" jdbcType="VARCHAR" property="loanId" />
+		<result column="loan_id" jdbcType="VARCHAR" property="loanId" />
+		<result column="period_no" jdbcType="INTEGER" property="periodNo" />
+		<result column="payable_date" jdbcType="VARCHAR" property="payableDate" />
+		<result column="payable_amount" jdbcType="DECIMAL" property="payableAmount" />
+		<result column="payable_interest" jdbcType="DECIMAL" property="payableInterest" />
+		<result column="payable_capital" jdbcType="DECIMAL" property="payableCapital" />
+		<result column="status" jdbcType="TINYINT" property="status" />
+		<result column="version" jdbcType="INTEGER" property="version" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id, loan_id, period_no, payable_date, payable_amount, payable_interest, payable_capital, status, version
+	</sql>
+	<select id="selectByPrimaryKey" parameterType="java.lang.String"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from t_repayment_plan
+		where id = #{id,jdbcType=VARCHAR}
+	</select>
+	<delete id="delete" parameterType="com.cfckata.team.loan.domain.RepaymentPlan">
+		delete from t_repayment_plan
+		where id = #{id,jdbcType=VARCHAR}
+	</delete>
+	<insert id="insert" parameterType="com.cfckata.team.loan.domain.RepaymentPlan">
+		insert into t_repayment_plan (
+		<include refid="Base_Column_List" />
+		)
+		values (
+		#{id}, #{loanId}, #{periodNo},#{payableDate},#{payableAmount},
+		#{payableInterest}, #{payableCapital}, #{status}, 1
+		)
+	</insert>
+</mapper>
