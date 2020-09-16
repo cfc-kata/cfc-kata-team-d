@@ -4,7 +4,6 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.cfckata.team.contract.dao.domain.Contract;
 import com.cfckata.team.contract.service.ContractService;
@@ -64,7 +63,6 @@ public class LoanService {
 		}
 	}
 
-	@Transactional
 	private String saveLoanAndPlans(LoanSendRequest request) {
 		Loan record = loanFactory.createLoan(request);
 		loanRepository.insert(record);
