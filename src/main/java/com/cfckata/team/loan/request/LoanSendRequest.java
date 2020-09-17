@@ -2,15 +2,24 @@ package com.cfckata.team.loan.request;
 
 import java.math.BigDecimal;
 
+import org.springframework.lang.NonNull;
+
 import com.cfckata.team.loan.domain.RepaymentType;
 
 public class LoanSendRequest {
+	@NonNull
     private String contractId;
+	@NonNull
     private BigDecimal applyAmount;
+	@NonNull
     private Integer totalMonth;
+	@NonNull
     private BigDecimal interestRate;
+	@NonNull
     private String withdrawBankAccount;
+	@NonNull
     private String repaymentBankAccount;
+    @NonNull
     private RepaymentType repaymentType;
     
     

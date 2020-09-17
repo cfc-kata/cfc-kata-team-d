@@ -1,7 +1,9 @@
 package com.cfckata.team.loan.request;
 
+import org.springframework.lang.NonNull;
 
 public class LoanQryRequest {
+	@NonNull
     private String loanId ;
 
 	public LoanQryRequest(String loanId) {

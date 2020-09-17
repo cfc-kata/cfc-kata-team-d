@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 
 import com.cfckata.team.loan.RepaymentPlanRepository;
 import com.cfckata.team.loan.domain.RepaymentPlan;
-import com.github.meixuesong.aggregatepersistence.Aggregate;
 
 
 @Service
@@ -15,8 +14,7 @@ public class RepaymentPlanService {
 	private RepaymentPlanRepository repaymentPlanRepository;
 
 	public RepaymentPlan findById(String id) {
-		Aggregate<RepaymentPlan> aggregate = repaymentPlanRepository.findById(id);
-    	return aggregate.getRoot();
+		return repaymentPlanRepository.findById(id);
 	}
 	
 	public List<RepaymentPlan> findByLoanId(String loanId) {

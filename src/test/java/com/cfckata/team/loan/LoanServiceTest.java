@@ -34,7 +34,7 @@ public class LoanServiceTest extends SpringServiceTest {
     public void should_create_loan_success_when_give_a_normal_request() {
         when(contractService.findById(anyString())).thenReturn(createContract());
         when(loanRepository.insert(any())).thenReturn(1);
-        when(repaymentPlanRepository.insert(any())).thenReturn(1);
+        when(repaymentPlanRepository.batchInsert(any())).thenReturn(1);
 		String loanId = loanService.createLoanAndPlans(createRequest());
 		Assert.assertNotNull(loanId);
     }

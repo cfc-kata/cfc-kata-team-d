@@ -13,7 +13,8 @@
 		<result column="version" jdbcType="INTEGER" property="version" />
 	</resultMap>
 	<sql id="Base_Column_List">
-		id, loan_id, period_no, payable_date, payable_amount, payable_interest, payable_capital, status, version
+		id, loan_id, period_no, payable_date, payable_amount,
+		payable_interest, payable_capital, status, version
 	</sql>
 	<select id="selectByPrimaryKey" parameterType="java.lang.String"
 		resultMap="BaseResultMap">
@@ -28,11 +29,19 @@
 	</delete>
 	<insert id="insert" parameterType="com.cfckata.team.loan.domain.RepaymentPlan">
 		insert into t_repayment_plan (
-		<include refid="Base_Column_List" />
+		id, loan_id, period_no, payable_date, payable_amount,
+		payable_interest, payable_capital, status, version
 		)
 		values (
 		#{id}, #{loanId}, #{periodNo},#{payableDate},#{payableAmount},
 		#{payableInterest}, #{payableCapital}, #{status}, 1
 		)
 	</insert>
+	<select id="selectByLoanId" parameterType="java.lang.String"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from t_repayment_plan
+		where loan_id = #{loanId,jdbcType=VARCHAR}
+	</select>
 </mapper>

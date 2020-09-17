@@ -42,7 +42,7 @@ public class LoanControllerTest extends ApiTest {
         when(contractService.findById(anyString())).thenReturn(createContract());
         when(proxy.pay(anyString(), any())).thenReturn("success");
         when(loanRepository.insert(any())).thenReturn(1);
-        when(repaymentPlanRepository.insert(any())).thenReturn(1);
+        when(repaymentPlanRepository.batchInsert(any())).thenReturn(1);
         when(loanRepository.findById(anyString())).thenReturn(createLoan());
     }
 	

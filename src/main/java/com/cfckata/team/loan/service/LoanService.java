@@ -67,12 +67,7 @@ public class LoanService {
 		Loan record = loanFactory.createLoan(request);
 		loanRepository.insert(record);
 		List<RepaymentPlan> plans = repaymentPlanFactory.createPlans(record);
-		for(RepaymentPlan plan : plans){
-			repaymentPlanRepository.insert(plan);
-		}
-		if(record == null){
-			return null;
-		}
+		repaymentPlanRepository.batchInsert(plans);
 		return record.getLoanId();
 	}
 
