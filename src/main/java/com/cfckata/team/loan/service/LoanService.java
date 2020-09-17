@@ -13,6 +13,7 @@ import com.cfckata.team.loan.dao.LoanFactory;
 import com.cfckata.team.loan.dao.RepaymentPlanFactory;
 import com.cfckata.team.loan.domain.Loan;
 import com.cfckata.team.loan.domain.RepaymentPlan;
+import com.cfckata.team.loan.domain.RepaymentType;
 import com.cfckata.team.loan.proxy.LoanProxy;
 import com.cfckata.team.loan.request.LoanSendRequest;
 
@@ -42,24 +43,27 @@ public class LoanService {
 	}
 	
 	public String createLoanAndPlans(LoanSendRequest request) {
+		beforeValidate(request);
+		String retCode = loanProxy.pay(request.getRepaymentBankAccount(), request.getApplyAmount());
+		if("success".equals(retCode)){
+			return saveLoanAndPlans(request);
+		}
+		return null;
+	}
+
+	private void beforeValidate(LoanSendRequest request) {
 		Contract contract = contractService.findById(request.getContractId());
 		if(contract == null){
 			throw new IllegalArgumentException("Contract not exists.");
 		}
-		//放款总额不能超过合同总额度；
 		if(request.getApplyAmount().compareTo(contract.getAmt()) > 0){
 			throw new IllegalArgumentException("放款总额不能超过合同总额度");
 		}
-		//合同过期不能放款；
 		if(contract.getOverDate().compareTo(new Date()) > 0){
 			throw new IllegalArgumentException("合同过期不能放款");
 		}
-		String retCode = loanProxy.pay(request.getRepaymentBankAccount(), request.getApplyAmount());
-		if("success".equals(retCode)){
-			//银行支付接口失败时，本次操作失败，需要重新发起放款
-			return saveLoanAndPlans(request);
-		}else{
-			return null;
+		if(!RepaymentType.DEBJ.equals(request.getRepaymentType())){
+			throw new IllegalArgumentException("目前只支持等额本金还款方式");
 		}
 	}
 

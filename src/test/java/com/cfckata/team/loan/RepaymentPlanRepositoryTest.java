@@ -26,7 +26,7 @@ public class RepaymentPlanRepositoryTest extends RepositoryTest {
 		String loanId = "loan0003";
 		List<RepaymentPlan> descPlans = repaymentPlanRepository.findByLoanId(loanId);
 		assertThat(descPlans).isNotEmpty();
-		Assert.assertEquals(descPlans.size(), 12);
+		assertThat(descPlans.size()).isEqualTo(12);
 	}
 
 	private List<RepaymentPlan> createNomalRepaymentPlan() {

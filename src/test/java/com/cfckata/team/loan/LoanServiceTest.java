@@ -46,7 +46,7 @@ public class LoanServiceTest extends SpringServiceTest {
 		request.setInterestRate(new BigDecimal("0.02"));
 		request.setTotalMonth(12);
 		request.setRepaymentBankAccount("0001");
-		request.setRepaymentType(RepaymentType.DEBX);
+		request.setRepaymentType(RepaymentType.DEBJ);
 		request.setWithdrawBankAccount("0002");
 		return request;
 	}
