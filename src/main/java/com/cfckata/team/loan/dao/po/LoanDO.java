@@ -24,8 +24,6 @@ public class LoanDO implements Versionable {
 	public void setVersion(int version) {
 		this.version = version;
 	}
-    public LoanDO() {
-    }
 
 	public String getContractId() {
 		return contractId;

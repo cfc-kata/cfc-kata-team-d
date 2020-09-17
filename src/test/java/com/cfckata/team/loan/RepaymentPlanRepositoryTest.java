@@ -1,5 +1,7 @@
 package com.cfckata.team.loan;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +25,7 @@ public class RepaymentPlanRepositoryTest extends RepositoryTest {
 		Assert.assertEquals(12, i);
 		String loanId = "loan0003";
 		List<RepaymentPlan> descPlans = repaymentPlanRepository.findByLoanId(loanId);
+		assertThat(descPlans).isNotEmpty();
 		Assert.assertEquals(descPlans.size(), 12);
 	}
 

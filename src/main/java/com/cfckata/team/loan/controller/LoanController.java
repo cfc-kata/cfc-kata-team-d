@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cfckata.team.contract.controller.ContractController;
 import com.cfckata.team.loan.domain.Loan;
 import com.cfckata.team.loan.request.LoanSendRequest;
 import com.cfckata.team.loan.response.LoanQryResponse;
@@ -22,7 +21,7 @@ import com.cfckata.team.loan.service.LoanService;
 @RequestMapping("/loan")
 public class LoanController {
 	
-	private Logger log = LoggerFactory.getLogger(ContractController.class);
+	private Logger log = LoggerFactory.getLogger(LoanController.class);
 
     private LoanService loanService;
 

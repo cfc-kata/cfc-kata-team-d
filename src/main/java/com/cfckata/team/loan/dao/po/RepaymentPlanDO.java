@@ -15,10 +15,6 @@ public class RepaymentPlanDO implements Versionable {
     private String status;
     private int version;
 
-
-    public RepaymentPlanDO() {
-    }
-    
 	@Override
 	public int getVersion() {
 		return version;

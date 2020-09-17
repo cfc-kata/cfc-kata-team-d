@@ -24,7 +24,7 @@ public class RepaymentPlanFactory {
 
 	public List<RepaymentPlan> createPlans(Loan loan) {
 		List<RepaymentPlan> plans = repository.findByLoanId(loan.getLoanId());
-		if (plans != null && plans.size() > 0) {
+		if (plans != null && !plans.isEmpty()) {
             throw new IllegalArgumentException("repository had exists.");
         }
 		int totalMonth = loan.getTotalMonth();
