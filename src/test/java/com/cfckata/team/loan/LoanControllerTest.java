@@ -68,7 +68,7 @@ public class LoanControllerTest extends ApiTest {
         request.setContractId("CA00001");
         request.setInterestRate(new BigDecimal("0.01"));
         request.setRepaymentBankAccount("bankAccount001");
-        request.setRepaymentType(RepaymentType.DEBX);
+        request.setRepaymentType(RepaymentType.DEBJ);
         request.setTotalMonth(12);
         request.setWithdrawBankAccount("bankAccount002");
 
